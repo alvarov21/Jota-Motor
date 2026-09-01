@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venta de motos | Jota Motor</title>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Satoshi', 'sans-serif'],
+          display: ['Cabinet Grotesk', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            bg: '#0a0a0a', surface: '#121212', card: '#1c1c1c',
+            border: '#2a2a2a', accent: '#ff5500', text: '#fafafa', muted: '#a1a1aa'
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+</style>
+<style>
+  body { background-color: #0a0a0a; color: #fafafa; overflow-x: hidden; }
+  .inner-bezel { box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); }
+</style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+  <!-- NAV -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[calc(100%-2rem)] max-w-2xl px-6 py-3 bg-brand-surface/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl">
+    <a href="otamotor-redesign.html" class="font-display font-bold text-xl tracking-tight hover:text-brand-accent transition-colors">Jota Motor</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+      <a href="taller.html" class="hover:text-white transition-colors">Taller</a>
+      <a href="motos.html" class="text-white">Motos</a>
+      <a href="equipacion.html" class="hover:text-white transition-colors">Equipación</a>
+    </div>
+    <a href="tel:+34614175748" class="text-sm font-medium text-brand-accent hover:text-white transition-colors">614 17 57 48</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-20 border-b border-white/5 bg-brand-surface/30">
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-6">Motos nuevas y ocasión.</h1>
+      <p class="text-lg text-brand-muted max-w-2xl mx-auto">Nuestro inventario actual. Todas las motos de ocasión han pasado una revisión de 40 puntos en nuestro taller antes de pisar la exposición.</p>
+    </div>
+  </section>
+
+  <!-- INVENTORY GRID -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Moto 1 Card -->
+      <button onclick="document.getElementById('modal-moto-1').showModal()" class="group text-left cursor-pointer focus:outline-none">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5 shadow-lg">
+          <img src="moto_naked_1788199264699.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" alt="Triumph Street Triple">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold group-hover:text-brand-accent transition-colors">Triumph Street Triple RS</h3>
+          <span class="text-white font-mono text-sm tracking-wide bg-white/10 px-2 py-1 rounded">2021</span>
+        </div>
+        <p class="text-brand-accent font-medium mb-2">9.500 €</p>
+        <p class="text-brand-muted text-sm flex items-center gap-2">Ver ficha completa <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+      </button>
+
+      <!-- Moto 2 Card -->
+      <button onclick="document.getElementById('modal-moto-2').showModal()" class="group text-left cursor-pointer focus:outline-none">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5 shadow-lg">
+          <img src="moto_scooter_1788199275484.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" alt="Scooter Eléctrica">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold group-hover:text-brand-accent transition-colors">NIU MQi GT EVO</h3>
+          <span class="text-brand-accent font-mono text-sm tracking-wide bg-brand-accent/10 px-2 py-1 rounded">NUEVA</span>
+        </div>
+        <p class="text-brand-accent font-medium mb-2">4.999 €</p>
+        <p class="text-brand-muted text-sm flex items-center gap-2">Ver ficha completa <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+      </button>
+
+      <!-- Moto 3 Card -->
+      <button onclick="document.getElementById('modal-moto-3').showModal()" class="group text-left cursor-pointer focus:outline-none">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5 shadow-lg">
+          <img src="moto_trail_1788199286571.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" alt="Yamaha Tenere">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold group-hover:text-brand-accent transition-colors">Yamaha Ténéré 700</h3>
+          <span class="text-white font-mono text-sm tracking-wide bg-white/10 px-2 py-1 rounded">2022</span>
+        </div>
+        <p class="text-brand-accent font-medium mb-2">8.900 €</p>
+        <p class="text-brand-muted text-sm flex items-center gap-2">Ver ficha completa <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+      </button>
+
+      <!-- Moto 4 Card -->
+      <button onclick="document.getElementById('modal-moto-4').showModal()" class="group text-left cursor-pointer focus:outline-none">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5 shadow-lg">
+          <img src="bento_venta_1788199222162.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" alt="Kawasaki Z900">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold group-hover:text-brand-accent transition-colors">Kawasaki Z900</h3>
+          <span class="text-white font-mono text-sm tracking-wide bg-white/10 px-2 py-1 rounded">2020</span>
+        </div>
+        <p class="text-brand-accent font-medium mb-2">7.200 €</p>
+        <p class="text-brand-muted text-sm flex items-center gap-2">Ver ficha completa <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- MODALS (Fichas Técnicas Pro-Max) -->
+  
+  <!-- Modal Moto 1 -->
+  <dialog id="modal-moto-1" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="moto_naked_1788199264699.jpg" class="w-full h-full object-cover" alt="Triumph Street Triple">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">OCASIÓN</span>
+          <span class="bg-white text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg">A</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Triumph Street Triple RS</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Año 2021 • 12.000 km • Matte Jet Black</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">9.500 €</p>
+            <p class="text-white/50 text-sm">Financiación desde <strong class="text-white">145 € / mes</strong></p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          Revisión completa en nuestro taller. Cambio de aceite, filtros y reglaje de válvulas recién hecho. Neumáticos Pirelli Diablo Supercorsa al 90%. Estado impecable, guardada siempre en garaje y sin caídas. Lista para salir de ruta sin invertir un solo euro.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          
+          <!-- Equipamiento -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Equipamiento Destacado
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Pantalla TFT a color con conectividad Bluetooth</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Quickshifter up & down de serie (Triumph Shift Assist)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> 5 Modos de conducción (Rain, Road, Sport, Track, Rider)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Pinzas Brembo M50 con bomba radial Brembo MCS</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Amortiguador trasero Öhlins STX40 totalmente ajustable</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Escape Arrow de titanio (Accesorio original)</li>
+            </ul>
+          </div>
+
+          <!-- Ficha Técnica -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Motor</span>
+                <span class="text-white text-sm font-medium">Tricilíndrico 765 cc</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Potencia máxima</span>
+                <span class="text-white text-sm font-medium">123 CV a 11.750 rpm</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Par máximo</span>
+                <span class="text-white text-sm font-medium">79 Nm a 9.350 rpm</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Peso en seco</span>
+                <span class="text-white text-sm font-medium">166 kg</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Altura del asiento</span>
+                <span class="text-white text-sm font-medium">825 mm</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Garantía Jota Motor</span>
+                <span class="text-brand-accent text-sm font-bold">12 meses incluida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Reservar moto ahora</a>
+          <a href="https://wa.me/34614175748" class="flex-1 flex items-center justify-center gap-2 bg-brand-card border border-white/10 text-white font-bold text-base py-5 rounded-xl hover:bg-white/5 transition-colors">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal Moto 2 -->
+  <dialog id="modal-moto-2" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="moto_scooter_1788199275484.jpg" class="w-full h-full object-cover" alt="Scooter">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-brand-accent text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">NUEVA</span>
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">ELÉCTRICA</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">NIU MQi GT EVO</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Año 2024 • 0 km • Matte Black</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">4.999 €</p>
+            <p class="text-white/50 text-sm">Precio con Plan MOVES III aplicado</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          La scooter eléctrica definitiva para moverte por la ciudad. Aceleración instantánea y una velocidad punta ideal para vías de circunvalación. Gracias a sus dos baterías extraíbles, puedes cargarla directamente en casa o en la oficina con un enchufe normal.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          
+          <!-- Equipamiento -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Tecnología y Extras
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Pantalla LED personalizable a color</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> App móvil con GPS, alarma antirobo y diagnóstico</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Keyless (Arranque sin llave vía Bluetooth)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Doble batería extraíble de litio (4ª Generación)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Frenos de disco EBS con frenada regenerativa</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> 3 modos de conducción (Eco, Dynamic, Sport)</li>
+            </ul>
+          </div>
+
+          <!-- Ficha Técnica -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Equivalencia Carnet</span>
+                <span class="text-white text-sm font-medium">125 cc (A1 / B)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Velocidad máxima</span>
+                <span class="text-white text-sm font-medium">100 km/h</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Autonomía estimada</span>
+                <span class="text-white text-sm font-medium">75 km</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Tiempo de carga (0-100%)</span>
+                <span class="text-white text-sm font-medium">5 horas (Carga dual)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Potencia del motor</span>
+                <span class="text-white text-sm font-medium">6.500 W (Pico)</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Garantía oficial NIU</span>
+                <span class="text-brand-accent text-sm font-bold">3 años incluida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Comprar ahora</a>
+          <a href="https://wa.me/34614175748" class="flex-1 flex items-center justify-center gap-2 bg-brand-card border border-white/10 text-white font-bold text-base py-5 rounded-xl hover:bg-white/5 transition-colors">Solicitar prueba gratuita</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal Moto 3 -->
+  <dialog id="modal-moto-3" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="moto_trail_1788199286571.jpg" class="w-full h-full object-cover" alt="Yamaha Tenere">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">OCASIÓN</span>
+          <span class="bg-white text-black text-xs font-bold px-4 py-2 rounded-full shadow-lg">A2</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Yamaha Ténéré 700</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Año 2022 • 18.500 km • Icon Blue</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">8.900 €</p>
+            <p class="text-white/50 text-sm">Con más de 1.200€ en extras</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          La moto de aventura por excelencia. Fiabilidad japonesa probada con el aclamado motor CP2. Único dueño, ha dormido siempre en garaje y cuenta con todo el libro de revisiones sellado en servicio oficial. Preparada tanto para viajar como para off-road.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          
+          <!-- Equipamiento -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Accesorios Incluidos
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Maletas laterales de aluminio (Yamaha Originales)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Defensas de motor integrales tubulares</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Protector de cárter de aluminio reforzado (Heavy Duty)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Faros antiniebla LED homologados</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Puños calefactables originales</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> ABS desconectable para off-road</li>
+            </ul>
+          </div>
+
+          <!-- Ficha Técnica -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Motor</span>
+                <span class="text-white text-sm font-medium">Bicilíndrico CP2 689 cc</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Potencia</span>
+                <span class="text-white text-sm font-medium">73 CV a 9.000 rpm</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Suspensiones</span>
+                <span class="text-white text-sm font-medium">Horquilla Invertida 210mm recorrido</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Llantas</span>
+                <span class="text-white text-sm font-medium">Radios (21" del / 18" tras)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Peso en orden de marcha</span>
+                <span class="text-white text-sm font-medium">204 kg</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Garantía Jota Motor</span>
+                <span class="text-brand-accent text-sm font-bold">12 meses incluida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Reservar moto ahora</a>
+          <a href="https://wa.me/34614175748" class="flex-1 flex items-center justify-center gap-2 bg-brand-card border border-white/10 text-white font-bold text-base py-5 rounded-xl hover:bg-white/5 transition-colors">Consultar extras por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal Moto 4 -->
+  <dialog id="modal-moto-4" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="bento_venta_1788199222162.jpg" class="w-full h-full object-cover" alt="Kawasaki Z900">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">OCASIÓN</span>
+          <span class="bg-brand-accent text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">A2 LIMITADA</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Kawasaki Z900 A2</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Año 2020 • 22.000 km • Metallic Spark Black</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">7.200 €</p>
+            <p class="text-white/50 text-sm">Lista para conducir con carnet A2</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          La reina de las naked para el carnet A2. Actualmente limitada físicamente y en papeles a 35kW (47CV), por lo que puedes llevarla nada más sacarte el carnet, y deslimitarla a 95CV cuando obtengas el A. Sonido espectacular gracias al escape Akrapovic.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          
+          <!-- Equipamiento -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Extras y Modificaciones
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Escape Akrapovic Carbono Slip-on (Homologado)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Portamatrículas corto Puig con luz LED</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Topes anticaída Pelacrash integrados</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Neumáticos Michelin Road 5 (Cambiados hace 2.000km)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Kit de arrastre completo DID reforzado nuevo</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Pantalla TFT a color con Bluetooth y App Rideology</li>
+            </ul>
+          </div>
+
+          <!-- Ficha Técnica -->
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Motor</span>
+                <span class="text-white text-sm font-medium">Tetracilíndrico en línea 948 cc</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Potencia (Limitada A2)</span>
+                <span class="text-white text-sm font-medium">35 kW (47 CV)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Potencia (Deslimitada)</span>
+                <span class="text-white text-sm font-medium">70 kW (95 CV)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Control de Tracción</span>
+                <span class="text-white text-sm font-medium">KTRC 3 niveles</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Embrague</span>
+                <span class="text-white text-sm font-medium">Antirrebote asistido</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Garantía Jota Motor</span>
+                <span class="text-brand-accent text-sm font-bold">12 meses incluida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Reservar moto ahora</a>
+          <a href="https://wa.me/34614175748" class="flex-1 flex items-center justify-center gap-2 bg-brand-card border border-white/10 text-white font-bold text-base py-5 rounded-xl hover:bg-white/5 transition-colors">Hablar sobre deslimitación</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <section class="py-12 border-t border-white/5 text-center text-brand-muted text-sm">
+    <p>&copy; 2026 Jota Motor. Baena, Córdoba.</p>
+  </section>
+</body>
+</html>

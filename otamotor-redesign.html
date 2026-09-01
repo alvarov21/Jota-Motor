@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jota Motor | Taller y concesionario en Baena</title>
+<!-- Typography: Cabinet Grotesk (display) and Satoshi (body) for a premium, clean look (no default serifs) -->
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500&display=swap" rel="stylesheet">
+<!-- Tailwind CSS via CDN for rapid structural implementation -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Satoshi', 'sans-serif'],
+          display: ['Cabinet Grotesk', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            bg: '#0a0a0a',        // True off-black
+            surface: '#121212',
+            card: '#1c1c1c',
+            border: '#2a2a2a',
+            accent: '#ff5500',    // Electric Orange
+            text: '#fafafa',
+            muted: '#a1a1aa'
+          }
+        }
+      }
+    }
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  body {
+    background-color: #0a0a0a;
+    color: #fafafa;
+    overflow-x: hidden;
+  }
+  /* Double bezel inner shadow for premium card depth */
+  .inner-bezel {
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+  }
+</style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+  <!-- FLUID ISLAND NAV -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[calc(100%-2rem)] max-w-2xl px-6 py-3 bg-brand-surface/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl reveal-nav">
+    <a href="otamotor-redesign.html" class="font-display font-bold text-xl tracking-tight hover:text-brand-accent transition-colors">Jota Motor</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+      <a href="taller.html" class="hover:text-white transition-colors">Taller</a>
+      <a href="motos.html" class="hover:text-white transition-colors">Motos</a>
+      <a href="equipacion.html" class="hover:text-white transition-colors">Equipación</a>
+    </div>
+    <a href="tel:+34614175748" class="text-sm font-medium text-brand-accent hover:text-white transition-colors">614 17 57 48</a>
+  </nav>
+
+  <!-- ASYMMETRIC HERO -->
+  <section class="relative min-h-[100dvh] flex items-center pt-24 pb-12 overflow-hidden">
+    <!-- Subtle grain/noise overlay for texture, avoiding pure flat digital looks -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+      
+      <!-- Text side -->
+      <div class="lg:col-span-6 flex flex-col items-start pt-10 lg:pt-0">
+        <!-- Replaced multiple eyebrows with a single clear trust marker -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-border bg-brand-surface/50 text-xs font-medium text-brand-muted mb-8 reveal-item">
+          <span class="text-brand-accent">★★★★★</span>
+          <span>4.8 en Google</span>
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6 reveal-item">
+          Tu moto,<br>
+          lista para rodar.
+        </h1>
+        
+        <!-- Max 20 words for subtext -->
+        <p class="text-lg text-brand-muted max-w-[45ch] mb-10 leading-relaxed reveal-item">
+          Concesionario y taller mecánico en Baena. Diagnóstico honesto, presupuesto claro y trabajo limpio, para que vuelvas a la carretera sin sorpresas.
+        </p>
+        
+        <!-- Nested CTA Architecture (Button in Button) -->
+        <div class="flex flex-wrap items-center gap-4 reveal-item">
+          <a href="tel:+34614175748" class="group relative inline-flex items-center gap-4 rounded-full bg-white pl-6 pr-1.5 py-1.5 text-black transition-transform active:scale-[0.98]">
+            <span class="font-semibold text-sm">Hablar con Jose</span>
+            <div class="flex h-9 w-9 items-center justify-center rounded-full bg-black/10 transition-transform group-hover:translate-x-1 group-hover:scale-105">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+          <a href="#inventario" class="text-sm font-medium text-brand-muted hover:text-white transition-colors px-4 py-3">
+            Ver motos disponibles
+          </a>
+        </div>
+      </div>
+
+      <!-- Image side -->
+      <div class="lg:col-span-6 relative h-[60vh] lg:h-[80vh] w-full rounded-[2rem] overflow-hidden border border-white/10 reveal-image">
+        <img src="hero_dealership_1788199211515.jpg" alt="Taller de motos Jota Motor" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-80"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO WALL / TRUST STRIP -->
+  <section class="py-12 border-y border-white/5 bg-brand-surface/30">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="font-display text-2xl md:text-3xl font-medium text-brand-muted reveal-scroll">
+        "Un taller de confianza no se anuncia. Se recomienda."
+      </p>
+    </div>
+  </section>
+
+  <!-- BENTO GRID (Replaces the generic 3-equal-column layout) -->
+  <section id="taller" class="py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16 reveal-scroll">
+        Todo lo que necesita tu moto,<br>en un mismo sitio.
+      </h2>
+      
+      <!-- CSS Grid Asymmetric Bento -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[24rem]">
+        
+        <!-- Large Cell -->
+        <a href="motos.html" class="md:col-span-8 p-1.5 rounded-[2rem] bg-white/5 border border-white/10 reveal-scroll block cursor-pointer">
+          <div class="relative w-full h-full rounded-[calc(2rem-0.375rem)] bg-brand-card inner-bezel overflow-hidden group">
+            <img src="bento_venta_1788199222162.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Moto en concesionario">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8 md:p-10">
+              <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Venta de motos <span class="inline-block transition-transform group-hover:translate-x-1">→</span></h3>
+              <p class="text-brand-muted max-w-sm">Nuevas y de ocasión, revisadas a fondo antes de salir del concesionario. Sal rodando tranquilo.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Small Cell 1 -->
+        <a href="taller.html" class="md:col-span-4 p-1.5 rounded-[2rem] bg-white/5 border border-white/10 reveal-scroll block cursor-pointer">
+          <div class="relative w-full h-full rounded-[calc(2rem-0.375rem)] bg-brand-card inner-bezel overflow-hidden group">
+            <img src="bento_taller_1788199232218.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Taller mecánico">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <h3 class="font-display text-2xl font-bold mb-2 group-hover:text-brand-accent transition-colors">Taller mecánico <span class="inline-block transition-transform group-hover:translate-x-1">→</span></h3>
+              <p class="text-sm text-brand-muted">Reparación y mantenimiento con diagnóstico claro y precio cerrado.</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Small Cell 2 (Text only, adds variation) -->
+        <div class="md:col-span-4 p-1.5 rounded-[2rem] bg-white/5 border border-white/10 reveal-scroll">
+          <div class="relative w-full h-full rounded-[calc(2rem-0.375rem)] bg-brand-surface inner-bezel p-8 flex flex-col justify-end">
+            <div class="absolute top-8 right-8 text-brand-accent">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold mb-2">Transparencia real</h3>
+            <p class="text-sm text-brand-muted">Sabrás qué le pasa a tu moto y cuánto costará antes de que toquemos un solo tornillo.</p>
+          </div>
+        </div>
+
+        <!-- Medium Cell -->
+        <a href="equipacion.html" class="md:col-span-8 p-1.5 rounded-[2rem] bg-white/5 border border-white/10 reveal-scroll block cursor-pointer">
+          <div class="relative w-full h-full rounded-[calc(2rem-0.375rem)] bg-brand-card inner-bezel overflow-hidden group">
+            <img src="bento_equipacion_1788199243618.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Equipación y cascos">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8 md:p-10 w-full flex justify-between items-end">
+              <div>
+                <h3 class="font-display text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Equipación <span class="inline-block transition-transform group-hover:translate-x-1">→</span></h3>
+                <p class="text-brand-muted max-w-sm">Cascos y protección homologada, elegida con calma contigo.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT TEXT / IMAGE (Replaces dark section) -->
+  <section class="py-24 bg-brand-surface border-y border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="relative h-[600px] rounded-[2rem] overflow-hidden reveal-scroll">
+        <img src="mechanic_jose_1788199254100.jpg" alt="Mecánico trabajando" class="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 transition-all duration-700">
+      </div>
+      <div class="reveal-scroll">
+        <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-8">Detrás de Jota Motor<br>está Jose.</h2>
+        <p class="text-lg text-brand-muted mb-6 leading-relaxed">
+          Formal, rápido y con las manos limpias hasta cuando está sucio de grasa. Es la razón por la que gente de fuera de Baena sigue trayendo su moto aquí.
+        </p>
+        <p class="text-lg text-brand-muted mb-10 leading-relaxed">
+          Si tienes una duda, un ruido raro o quieres cambiar de moto, habla directamente con él.
+        </p>
+        <a href="tel:+34614175748" class="inline-flex items-center gap-3 border-b border-brand-accent pb-1 text-brand-accent font-medium hover:text-white hover:border-white transition-colors">
+          Llamar al taller
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVENTORY (Cards) -->
+  <section id="inventario" class="py-32">
+    <div class="max-w-7xl mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 reveal-scroll">
+      <div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">Motos en concesionario</h2>
+        <p class="text-brand-muted text-lg max-w-lg">Revisadas a fondo y con garantía. Ven a verlas sin compromiso.</p>
+      </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="group cursor-pointer reveal-scroll">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5">
+          <img src="moto_naked_1788199264699.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Naked de ocasión">
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold">Naked de ocasión</h3>
+          <span class="text-brand-accent font-mono text-sm tracking-wide">CONSULTAR</span>
+        </div>
+        <p class="text-brand-muted text-sm">Revisión completa en nuestro taller. Lista para rodar.</p>
+      </div>
+
+      <!-- Card 2 (Slightly offset for masonry feel) -->
+      <div class="group cursor-pointer reveal-scroll md:mt-12">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5">
+          <img src="moto_scooter_1788199275484.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Scooter urbana">
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold">Scooter urbana</h3>
+          <span class="text-brand-accent font-mono text-sm tracking-wide">CONSULTAR</span>
+        </div>
+        <p class="text-brand-muted text-sm">Bajo consumo y mantenimiento sencillo. Ideal ciudad.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group cursor-pointer reveal-scroll">
+        <div class="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-6 bg-brand-surface border border-white/5">
+          <img src="moto_trail_1788199286571.jpg" class="w-full h-full object-cover opacity-80 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Trail carretera">
+        </div>
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="font-display text-xl font-bold">Trail polivalente</h3>
+          <span class="text-brand-accent font-mono text-sm tracking-wide">CONSULTAR</span>
+        </div>
+        <p class="text-brand-muted text-sm">Neumáticos nuevos y garantía de taller. Lista para ruta.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA / FOOTER BLOCK -->
+  <section id="contacto" class="relative pt-32 pb-16 overflow-hidden border-t border-white/5">
+    <!-- Overlay noise for bottom weight -->
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter2%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter2)%22/%3E%3C/svg%3E');"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 text-center mb-24 reveal-scroll">
+      <h2 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-8">
+        Pásate por el taller.
+      </h2>
+      <p class="text-lg text-brand-muted max-w-xl mx-auto mb-10">
+        Sin cita previa para consultas rápidas. Para revisiones completas, llámanos antes y te hacemos hueco.
+      </p>
+      
+      <!-- Button in Button structure -->
+      <a href="tel:+34614175748" class="group relative inline-flex items-center gap-4 rounded-full bg-white pl-8 pr-2 py-2 text-black transition-transform active:scale-[0.98] mx-auto">
+        <span class="font-bold text-base">614 17 57 48</span>
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-accent text-white transition-transform group-hover:translate-x-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Minimal, structured Footer -->
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm text-brand-muted border-t border-white/5 pt-16 reveal-scroll">
+      <div class="md:col-span-2">
+        <div class="font-display text-2xl font-bold text-white mb-4">Jota Motor</div>
+        <p class="max-w-xs">Taller y concesionario en Baena. Trato cercano, trabajo rápido y manos limpias.</p>
+      </div>
+      <div>
+        <h4 class="font-medium text-white mb-4 uppercase tracking-widest text-xs">Visítanos</h4>
+        <p class="mb-2">Av. Castro del Río, 17</p>
+        <p class="mb-4">14850 Baena, Córdoba</p>
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="text-brand-accent hover:text-white transition-colors">Abrir en Maps ↗</a>
+      </div>
+      <div>
+        <h4 class="font-medium text-white mb-4 uppercase tracking-widest text-xs">Contacto</h4>
+        <p class="mb-2">614 17 57 48</p>
+        <p class="mb-4">Apertura a las 7:00</p>
+        <a href="#" class="block hover:text-white transition-colors mb-2">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fluid Animations with GSAP -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Hero Animation
+    const tl = gsap.timeline();
+    tl.fromTo(".reveal-nav", 
+      { y: -20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.2 }
+    )
+    .fromTo(".reveal-item",
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1 },
+      "-=0.6"
+    )
+    .fromTo(".reveal-image",
+      { y: 40, opacity: 0, scale: 0.98 },
+      { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power3.out" },
+      "-=0.8"
+    );
+
+    // Scroll Reveals
+    gsap.utils.toArray('.reveal-scroll').forEach(element => {
+      gsap.fromTo(element,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+
+    // Parallax on hero image
+    gsap.to(".reveal-image img", {
+      yPercent: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".reveal-image",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  </script>
+</body>
+</html>

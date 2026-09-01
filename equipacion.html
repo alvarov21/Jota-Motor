@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equipación | Jota Motor</title>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Satoshi', 'sans-serif'],
+          display: ['Cabinet Grotesk', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            bg: '#0a0a0a', surface: '#121212', card: '#1c1c1c',
+            border: '#2a2a2a', accent: '#ff5500', text: '#fafafa', muted: '#a1a1aa'
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #0a0a0a; color: #fafafa; overflow-x: hidden; }
+  .inner-bezel { box-shadow: inset 0 1px 1px rgba(255,255,255,0.1); }
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+  <!-- NAV -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[calc(100%-2rem)] max-w-2xl px-6 py-3 bg-brand-surface/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl">
+    <a href="otamotor-redesign.html" class="font-display font-bold text-xl tracking-tight hover:text-brand-accent transition-colors">Jota Motor</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+      <a href="taller.html" class="hover:text-white transition-colors">Taller</a>
+      <a href="motos.html" class="hover:text-white transition-colors">Motos</a>
+      <a href="equipacion.html" class="text-white">Equipación</a>
+    </div>
+    <a href="tel:+34614175748" class="text-sm font-medium text-brand-accent hover:text-white transition-colors">614 17 57 48</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative pt-40 pb-20 border-b border-white/5 bg-brand-surface/30">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-6">Protégete bien.</h1>
+        <p class="text-lg text-brand-muted max-w-md">No vendemos nada que no usaríamos nosotros. Cascos homologados, chaquetas con protecciones y guantes que aguantan el asfalto.</p>
+      </div>
+      <div class="relative aspect-video rounded-[2rem] overflow-hidden border border-white/10">
+        <img src="bento_equipacion_1788199243618.jpg" alt="Equipación" class="w-full h-full object-cover opacity-80">
+      </div>
+    </div>
+  </section>
+
+  <!-- DESTACADOS (GRID DE PRODUCTOS) -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex items-end justify-between mb-12">
+        <h2 class="font-display text-4xl font-bold">Equipación Destacada</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Producto 1 -->
+        <button onclick="document.getElementById('modal-gear-1').showModal()" class="group text-left bg-brand-surface border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all hover:-translate-y-1">
+          <div class="relative aspect-square overflow-hidden bg-black/50">
+            <img src="helmet_matte_black_1788202391020.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Casco Shoei">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold mb-1 text-white">Casco Shoei NXR2</h3>
+            <p class="text-brand-muted text-sm mb-4">Matte Black • Integral</p>
+            <p class="text-brand-accent font-medium mb-2">499 €</p>
+            <p class="text-brand-muted text-sm flex items-center gap-2">Ver especificaciones <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+          </div>
+        </button>
+
+        <!-- Producto 2 -->
+        <button onclick="document.getElementById('modal-gear-2').showModal()" class="group text-left bg-brand-surface border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all hover:-translate-y-1">
+          <div class="relative aspect-square overflow-hidden bg-black/50">
+            <img src="jacket_leather_black_1788202400048.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Chaqueta Alpinestars">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold mb-1 text-white">Chaqueta Alpinestars</h3>
+            <p class="text-brand-muted text-sm mb-4">Missile V2 Leather</p>
+            <p class="text-brand-accent font-medium mb-2">389 €</p>
+            <p class="text-brand-muted text-sm flex items-center gap-2">Ver especificaciones <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+          </div>
+        </button>
+
+        <!-- Producto 3 -->
+        <button onclick="document.getElementById('modal-gear-3').showModal()" class="group text-left bg-brand-surface border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all hover:-translate-y-1">
+          <div class="relative aspect-square overflow-hidden bg-black/50">
+            <img src="gloves_racing_black_1788202417354.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Guantes Dainese">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold mb-1 text-white">Guantes Dainese</h3>
+            <p class="text-brand-muted text-sm mb-4">Carbon 4 Long</p>
+            <p class="text-brand-accent font-medium mb-2">159 €</p>
+            <p class="text-brand-muted text-sm flex items-center gap-2">Ver especificaciones <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+          </div>
+        </button>
+
+        <!-- Producto 4 -->
+        <button onclick="document.getElementById('modal-gear-4').showModal()" class="group text-left bg-brand-surface border border-white/5 rounded-3xl overflow-hidden hover:border-white/20 transition-all hover:-translate-y-1">
+          <div class="relative aspect-square overflow-hidden bg-black/50">
+            <img src="boots_riding_black_1788202427313.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Botas Sidi">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-2xl font-bold mb-1 text-white">Botas Sidi Rex</h3>
+            <p class="text-brand-muted text-sm mb-4">Racing Black</p>
+            <p class="text-brand-accent font-medium mb-2">299 €</p>
+            <p class="text-brand-muted text-sm flex items-center gap-2">Ver especificaciones <span class="group-hover:translate-x-1 transition-transform">→</span></p>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALS (Fichas de Equipación Pro-Max) -->
+  
+  <!-- Modal 1 -->
+  <dialog id="modal-gear-1" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="helmet_matte_black_1788202391020.jpg" class="w-full h-full object-cover" alt="Casco Shoei">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">NOVEDAD</span>
+          <span class="bg-brand-accent text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">ECE 22.06</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Shoei NXR2</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Casco Integral Premium • Matte Black</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">499 €</p>
+            <p class="text-white/50 text-sm">Incluye Pinlock EVO de regalo</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          El casco deportivo puro definitivo. Compacto, ligero e increíblemente aerodinámico. Cumple con la estricta normativa de homologación ECE 22.06. Su calota exterior AIM absorbe los impactos con una rigidez óptima, mientras que su sistema de ventilación múltiple garantiza frescor incluso en pleno verano.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Características Principales
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Calota AIM de fibra orgánica y multi-composite</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Sistema EQRS de extracción rápida de emergencia</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Pantalla CWR-F2 con campo de visión ampliado</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Acolchados interiores 3D desmontables y lavables</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> 4 tamaños de calota para un ajuste perfecto</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Tipo</span>
+                <span class="text-white text-sm font-medium">Integral Deportivo</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Material</span>
+                <span class="text-white text-sm font-medium">Fibra AIM (Advanced Integrated Matrix)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Cierre</span>
+                <span class="text-white text-sm font-medium">Doble Anilla (D-Ring)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Homologación</span>
+                <span class="text-white text-sm font-medium">ECE 22.06</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Peso (Talla M)</span>
+                <span class="text-brand-accent text-sm font-bold">1.390g (+/- 50g)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Consultar disponibilidad de tallas</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal 2 -->
+  <dialog id="modal-gear-2" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="jacket_leather_black_1788202400048.jpg" class="w-full h-full object-cover" alt="Chaqueta Alpinestars">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">RACING</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Alpinestars Missile V2</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Chaqueta de Piel • Tech-Air® Ready</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">389 €</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          La chaqueta de cuero Missile V2 ofrece una óptima resistencia a la abrasión y cuenta con un ajuste diseñado para proporcionar el más alto nivel de protección activa en carrera. Está preparada para incorporar el sistema de airbag Tech-Air® 5 de Alpinestars.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Características Principales
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Piel bovina premium de 1.3 mm de grosor</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Protecciones Nucleon Flex Pro en hombros y codos</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Deslizaderas DFS de doble densidad en los hombros</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Paneles elásticos de poliamida para mayor libertad</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Compartimento para espaldera (no incluida)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Material</span>
+                <span class="text-white text-sm font-medium">Piel 100% Genuina</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Forro térmico</span>
+                <span class="text-white text-sm font-medium">No (Chaqueta deportiva pura)</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Cremallera de unión</span>
+                <span class="text-white text-sm font-medium">Sí (Compatible con pantalones)</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Certificación</span>
+                <span class="text-brand-accent text-sm font-bold">CE - Categoría II EN17092 - Clase AAA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Consultar disponibilidad de tallas</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal 3 -->
+  <dialog id="modal-gear-3" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="gloves_racing_black_1788202417354.jpg" class="w-full h-full object-cover" alt="Guantes Dainese">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">CARBONO</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Dainese Carbon 4 Long</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Guantes Racing de Piel • Caña Larga</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">159 €</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          Guantes deportivos largos certificados que garantizan los más altos niveles de protección de Dainese gracias a sus inserciones de fibra de carbono en los nudillos y poliuretano en la palma. La combinación de piel de oveja micro-inyectada proporciona sensibilidad y comodidad inigualables.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Características Principales
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Nudillos de fibra de carbono auténtica</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Palma de piel de oveja súper suave teñida en tambor</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Inserciones de poliuretano en articulaciones y palma</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Sistema DCP en el dedo meñique (Anti-torsión)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Dedos pre-curvados para evitar fatiga</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Temporada</span>
+                <span class="text-white text-sm font-medium">Entretiempo / Verano</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Estilo</span>
+                <span class="text-white text-sm font-medium">Racing / Deportivo</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Pantallas Táctiles</span>
+                <span class="text-white text-sm font-medium">No compatibles</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Certificación</span>
+                <span class="text-brand-accent text-sm font-bold">CE - Cat. II - EN 13594/2015 niv. 1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Consultar disponibilidad de tallas</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal 4 -->
+  <dialog id="modal-gear-4" class="backdrop:bg-black/90 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto w-[95%] max-w-4xl rounded-[2rem] shadow-2xl overflow-hidden focus:outline-none">
+    <div class="flex flex-col bg-brand-surface border border-white/5 relative max-h-[90vh] overflow-y-auto custom-scrollbar">
+      <button onclick="this.closest('dialog').close()" class="absolute top-4 right-4 z-50 w-10 h-10 bg-black/50 hover:bg-white text-white hover:text-black rounded-full flex items-center justify-center backdrop-blur-md transition-colors border border-white/10">✕</button>
+      
+      <div class="relative w-full aspect-video md:aspect-[21/9]">
+        <img src="boots_riding_black_1788202427313.jpg" class="w-full h-full object-cover" alt="Botas Sidi">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-surface to-transparent"></div>
+        <div class="absolute top-6 left-6 flex gap-2">
+          <span class="bg-black/80 backdrop-blur-md text-white text-xs font-bold px-4 py-2 rounded-full border border-white/10 shadow-lg">RACING</span>
+        </div>
+      </div>
+      
+      <div class="px-6 md:px-10 pb-10 pt-4">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4 border-b border-white/5 pb-8">
+          <div>
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-3 text-white">Sidi Rex</h3>
+            <p class="text-brand-muted text-lg tracking-wide">Botas Deportivas Alta Gama • Techno-3 Push</p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-brand-accent font-bold text-4xl mb-1">299 €</p>
+          </div>
+        </div>
+        
+        <p class="text-brand-muted text-base leading-relaxed mb-10 border-l-2 border-brand-accent pl-5">
+          Diseñadas tras rigurosas investigaciones y tests en circuito con pilotos de MotoGP. Las Sidi Rex ofrecen unas prestaciones inigualables en materia de seguridad, confort y transpirabilidad. Destacan por su innovador sistema de cierre Techno-3 Push y sus protecciones de TPU.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Características Principales
+            </h4>
+            <ul class="space-y-4 text-sm text-brand-muted">
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Sistema de cierre Techno-3 Push (Ajuste milimétrico)</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Tobillera asimétrica con soporte de fibra de vidrio</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Deslizadera reemplazable con inserciones de aleación</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Zona del talón asimétrica con carcasa amortiguadora</li>
+              <li class="flex items-start gap-3"><span class="text-white/30 text-lg leading-none">✓</span> Entradas de aire regulables en la zona lateral</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-white text-lg mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand-accent"></span> Especificaciones Técnicas
+            </h4>
+            <div class="space-y-4 bg-black/20 rounded-2xl p-5 border border-white/5">
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Material principal</span>
+                <span class="text-white text-sm font-medium">Technomicro de alta resistencia</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Forro Interior</span>
+                <span class="text-white text-sm font-medium">Teflón con malla Cambrelle</span>
+              </div>
+              <div class="flex justify-between border-b border-white/5 pb-3">
+                <span class="text-white/50 text-sm">Suela</span>
+                <span class="text-white text-sm font-medium">Goma con grip racing</span>
+              </div>
+              <div class="flex justify-between pb-1">
+                <span class="text-white/50 text-sm">Certificación</span>
+                <span class="text-brand-accent text-sm font-bold">CE - Nivel máximo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/5 mt-auto">
+          <a href="tel:+34614175748" class="flex-1 flex items-center justify-center gap-2 bg-white text-black font-bold text-base py-5 rounded-xl hover:scale-[0.98] transition-transform">Consultar disponibilidad de tallas</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <section class="py-12 border-t border-white/5 text-center text-brand-muted text-sm">
+    <p>&copy; 2026 Jota Motor. Baena, Córdoba.</p>
+  </section>
+</body>
+</html>
